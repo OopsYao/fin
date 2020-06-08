@@ -18,6 +18,8 @@ export default _ => {
 const mdStr = `
 # 无事生非
 
+> For Alice
+
 里来一个的木。
 
 知道点的，自然太多去一，真的上了一天大家而且到了到十，五个而且想去只见。来的来了行为的想，墨子衣服是现亲的⋯差点要一在哪。爷的万不原来了吗，本人不舒这一一下点半，如果这时篇原虽然。
@@ -30,11 +32,23 @@ const mdStr = `
 
 是一我们于这然好，沉默周围是一坐在⋯会很都要人说似乎许多，带着。然后办法时光了吧，去了漫画附近，喜欢明天台湾外一忘记买了的走，一直做到一个。认真对方了不连殳吃人秃头。
 
-包包仿佛⋯类的著就，自己问题并不下课，我不跟我啊啊的自有点。
+## 标题党
 
-都是点也就这现在来好。子就个月这种政治没有听得。
+包包仿佛⋯类的著就，自己问题并不下课，我不跟我啊啊的*自有*点。
+
+关键字\`const\`以及\`const str = '头伸过来'\`
+
+都是点也就这现在来好。子就个月这种**政治**没有听得。
 
 他不看到是这又是冷静，渐渐好像牛奶来越他们，的车是真本不：要买他们不舒中国。文章爱啊了手是想忽而那就⋯报告好友家都不知一齐，原来是不留言我在我没欢这，开箱里是。
+
+| Unset         | Are           | Cool  | 中文          | Are           | Cool  |
+| ------------- |:-------------:| -----:| :------------ |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 | col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 | col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 | zebra stripes | are neat      |    $1 |
+| 苹果          | 梨子          |  香蕉 | 苹果          | 梨子          |  香蕉 | 
+
 
 ## What is your problem
 
@@ -48,5 +62,38 @@ Donec nec nisl ligula. Maecenas hendrerit, mi nec auctor lacinia, nunc sem sagit
 
 Quisque lobortis turpis at mi porta scelerisque a non neque. Duis purus leo, accumsan ut porta vel, tempor sed nibh. Donec pretium egestas dolor, a pellentesque elit porta sit amet. In eget dolor nec augue consequat consectetur. In fermentum libero scelerisque pulvinar pretium. In quis dictum libero, vitae ultrices nibh. Morbi eleifend ipsum eu elit fringilla, non dignissim enim semper. Nulla facilisi. Aliquam volutpat blandit erat ac lobortis. Suspendisse eu ex sed erat aliquam ultrices tempor in lacus. Cras sit amet turpis ut justo ornare feugiat non accumsan purus. Integer condimentum sit amet nunc sed bibendum. Nullam accumsan ac nisi sit amet rhoncus.
 
-你搞些中文试试？
+---
+
+你搞些中文试试？还有[链接](/)以及![wtm](http://img3.imgtn.bdimg.com/it/u=1793534070,4032315475&fm=11&gp=0.jpg)
+
+![某些图片](https://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1592204266&t=bb6bee103f29a339d570dd1261d18bf7)
+
+\`\`\`js
+// Fetching all the article list
+const articles = await this.$content('blog').fetch();
+
+// Fetching articles with filters
+const articles = await this.$content('blog')
+  .search('title', 'welcome')
+  .fetch();
+
+// Fetching specific article [1]
+const article = await this.$content('blog', articleSlug).fetch();
+
+// Fetching specific article [2]
+const article = await this.$content('blog')
+  .where({ slug: articleSlug })
+  .fetch();
+\`\`\`
+
+> 白嫖使人快乐——鲁迅
+>> 嵌套又如何
+
+1. 第一步
+2. 摔一跤
+3. 爬起来
+
+- 香蕉
+- 苹果
+- 梨
 `;
