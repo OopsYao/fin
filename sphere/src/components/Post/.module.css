@@ -41,13 +41,8 @@
 
 /* * Image */
 
-.post p {
-    /* TODO  Center img */
-    /* Following cases normal paragraph with <span> unwanted */
-    /* display: flex; */
-}
-
 .post img {
+    display: block;
     margin: 0 auto;
     max-width: 100%;
 }
