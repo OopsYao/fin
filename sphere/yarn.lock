@@ -6686,6 +6686,11 @@ markdown-it-highlight@^0.2.0:
   dependencies:
     highlight.js "^9.12.0"
 
+markdown-it-implicit-figures@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.npm.taobao.org/markdown-it-implicit-figures/download/markdown-it-implicit-figures-0.10.0.tgz#0e75e80b846da1e3117a3fc6d6b013d0cc3f2a8c"
+  integrity sha1-DnXoC4RtoeMRej/G1rAT0Mw/Kow=
+
 markdown-it@^11.0.0:
   version "11.0.0"
   resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-11.0.0.tgz?cache=0&sync_timestamp=1589937308693&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarkdown-it%2Fdownload%2Fmarkdown-it-11.0.0.tgz#dbfc30363e43d756ebc52c38586b91b90046b876"
