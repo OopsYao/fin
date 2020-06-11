@@ -17,3 +17,10 @@ code {
 ::selection {
   background-color: lightgray;
 }
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}

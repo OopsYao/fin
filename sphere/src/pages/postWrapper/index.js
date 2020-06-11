@@ -1,18 +1,22 @@
 import React from 'react';
 // import { useParams } from 'react-router-dom';
 import Post from '../../components/Post';
+import HeadBar from '../../components/HeadBar';
 
 import styles from './.module.css';
 
 export default _ => {
-    // const { pid } = useParams();
-    return (
-        <div className={styles.page}>
-            <div className={styles.postcard}>
-                <Post post={mdStr} />
-            </div>
-        </div>
-    );
+  // const { pid } = useParams();
+  return (
+    <div className={styles.page}>
+      <header>
+        <HeadBar />
+      </header>
+      <div className={styles.postcard}>
+        <Post post={mdStr} />
+      </div>
+    </div>
+  );
 };
 
 const mdStr = `

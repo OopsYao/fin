@@ -6,3 +6,9 @@
     margin: 0 auto;
     max-width: 800px;
 }
+
+.page header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
