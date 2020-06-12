@@ -3,11 +3,13 @@ import MarkdownIt from 'markdown-it';
 import markdownItHighlight from 'markdown-it-highlight';
 import implicitFigures from 'markdown-it-implicit-figures';
 import mk from '@iktakahiro/markdown-it-katex'; // Match 0.11.1 KaTeX css and support Chinese
+import markdownItAttrs from 'markdown-it-attrs';
 
 import 'highlight.js/styles/nord.css';
 import styles from './.module.css';
 
 const md = new MarkdownIt()
+    .use(markdownItAttrs)
     .use(markdownItHighlight)
     .use(implicitFigures, {
         figcaption: true

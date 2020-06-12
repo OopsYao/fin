@@ -3,8 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
 /* TODO import together */
 
+:root {
+    --post-padding: 1.5em;
+}
+
 .post {
-    padding: 1em 2em;
+    padding: 1em var(--post-padding);
     line-height: normal;
     /* Font */
     color: #08090A;
@@ -26,12 +30,27 @@
 .post pre {
     overflow: auto;
     /* Same as post padding */
-    margin-left: -2em;
-    margin-right: -2em;
+    margin-left: calc(var(--post-padding) * -1);
+    margin-right: calc(var(--post-padding) * -1);
 }
 
 .post pre code {
-    padding: 0.7em 2em;
+    padding: 0.7em var(--post-padding);
+}
+
+/* ! markdown-it-attrs not working in fence block
+   see https://github.com/markdown-it/markdown-it/issues/457
+*/
+
+/* Shrink mode (not expand) */
+.post :global(pre.shrink) {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 3px;
+}
+
+.post :global(pre.shrink code) {
+    padding: 0.7em 0.5em;
 }
 
 /* Inline */
@@ -57,9 +76,8 @@
     align-items: center;
 }
 
-.post figure img {
-    /* Imporve ex for mobile (no padding, visually) */
-    max-width: calc(100% + 2 * 2em);
+.post :global(figure img.expand) {
+    max-width: calc(100% + 2 * var(--post-padding));
 }
 
 .post figcaption {
