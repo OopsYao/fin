@@ -53,6 +53,9 @@ const mdStr = `
 | zebra stripes | are neat      |    $1 | zebra stripes | are neat      |    $1 |
 | 苹果          | 梨子          |  香蕉 | 苹果          | 梨子          |  香蕉 | 
 
+以及$x^2$
+$$E=3mc_3^2\\int_\\Omega\\frac{x^2}{\\sqrt{1-x^2}}dx\\text{XX公式}
+\\int_\\Omega g(X)dP(\\omega)$$
 
 ## What is your problem
 

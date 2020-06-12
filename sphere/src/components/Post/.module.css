@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+/* TODO import together */
+
 .post {
     padding: 1em 2em;
     line-height: normal;
     /* Font */
     color: #08090A;
     font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
+    font-size: calc(1rem + 1vw / 20);
     /* Card design */
     box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .02), 1px 1px 15px 0 rgba(0, 0, 0, .03);
     border-radius: 2px;
@@ -165,4 +168,17 @@
     line-height: 0.4;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+/* * Math */
+
+.post :global(.katex) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 1.1em;
+}
+
+.post :global(.katex .cjk_fallback) {
+    font-size: 0.9em;
+    font-family: 'Noto Serif SC', 'Microsoft Yahei', sans-serif;
 }
