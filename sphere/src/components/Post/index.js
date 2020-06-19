@@ -25,7 +25,7 @@ md.renderer.rules.table_close = function (tokens, idx, options, env, self) {
 };
 export default props => (
     <div>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css' />
+        <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css' />
         <div className={styles.post} dangerouslySetInnerHTML={{ __html: md.render(props.post) }} />
     </div>
 )
