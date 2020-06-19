@@ -17,12 +17,11 @@ const md = new MarkdownIt()
     .use(mk);
 // When rendering table, wrap in div container to make overflow scroll
 // See https://github.com/markdown-it/markdown-it/issues/544
-md.renderer.rules.table_open = function (tokens, idx, options, env, self) {
-    return `<div class='table-wrapper'>` + self.renderToken(tokens, idx, options);
-};
-md.renderer.rules.table_close = function (tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options) + `</div>`
-};
+md.renderer.rules.table_open = (tokens, idx, options, _, self) =>
+    `<div class='table-wrapper'>${self.renderToken(tokens, idx, options)}`;
+md.renderer.rules.table_close = (tokens, idx, options, _, self) =>
+    `${self.renderToken(tokens, idx, options)}</div>`;
+
 export default props => (
     <div>
         <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css' />
