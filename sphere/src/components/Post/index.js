@@ -10,7 +10,9 @@ import cjkBreaks from 'markdown-it-cjk-breaks';
 import 'highlight.js/styles/nord.css';
 import styles from './.module.css';
 
-const md = new MarkdownIt()
+const md = new MarkdownIt({
+    html: true,
+})
     .use(markdownItAttrs)
     .use(markdownItHighlight)
     .use(implicitFigures, {

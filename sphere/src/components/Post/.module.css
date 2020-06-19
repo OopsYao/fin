@@ -207,3 +207,11 @@
     font-size: 0.9em;
     font-family: 'Noto Serif SC', 'Fangsong', 'Microsoft Yahei', sans-serif;
 }
+
+/* * IFrame */
+
+.post iframe {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+}

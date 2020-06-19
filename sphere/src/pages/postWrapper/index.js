@@ -138,4 +138,14 @@ Give me the strength never to disown the poor or bend my knees before insolent m
 Give me the strength to raise my mind high above daily trifles  
 And give me the strength to surrender my strength to thy will with love  
 {.center}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2_3rYpeYh_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+     class="extend"
+     src="https://codesandbox.io/embed/vue-vue?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Vue"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 `;
