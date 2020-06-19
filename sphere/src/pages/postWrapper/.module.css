@@ -4,11 +4,15 @@
 
 .postcard {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: var(--max-post-width);
 }
 
 .page header {
     position: fixed;
     width: 100%;
     z-index: 999;
+}
+
+:root {
+    --max-post-width: calc(700px + 10vw);
 }

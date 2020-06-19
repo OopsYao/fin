@@ -8,5 +8,5 @@
 .maintext {
     padding: 0.7em var(--post-padding);
     margin: 0 auto;
-    max-width: 800px;
+    max-width: var(--max-post-width);
 }
