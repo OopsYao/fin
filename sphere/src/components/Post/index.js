@@ -1,4 +1,5 @@
 import React from 'react';
+import useScript from '../../utils/useScript';
 import MarkdownIt from 'markdown-it';
 import markdownItHighlight from 'markdown-it-highlight';
 import implicitFigures from 'markdown-it-implicit-figures';
@@ -22,9 +23,15 @@ md.renderer.rules.table_open = (tokens, idx, options, _, self) =>
 md.renderer.rules.table_close = (tokens, idx, options, _, self) =>
     `${self.renderToken(tokens, idx, options)}</div>`;
 
-export default props => (
-    <div>
-        <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css' />
-        <div className={styles.post} dangerouslySetInnerHTML={{ __html: md.render(props.post) }} />
-    </div>
-)
+
+export default props => {
+    // Copy KaTeX
+    useScript('https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js');
+    return (
+        <div>
+            <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css' />
+            <link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.css" rel="stylesheet" type="text/css" />
+            <div className={styles.post} dangerouslySetInnerHTML={{ __html: md.render(props.post) }} />
+        </div>
+    )
+};
