@@ -5,6 +5,7 @@ import markdownItHighlight from 'markdown-it-highlight';
 import implicitFigures from 'markdown-it-implicit-figures';
 import mk from '@iktakahiro/markdown-it-katex'; // Match 0.11.1 KaTeX css and support Chinese
 import markdownItAttrs from 'markdown-it-attrs';
+import cjkBreaks from 'markdown-it-cjk-breaks';
 
 import 'highlight.js/styles/nord.css';
 import styles from './.module.css';
@@ -15,7 +16,8 @@ const md = new MarkdownIt()
     .use(implicitFigures, {
         figcaption: true
     })
-    .use(mk);
+    .use(mk)
+    .use(cjkBreaks);
 // When rendering table, wrap in div container to make overflow scroll
 // See https://github.com/markdown-it/markdown-it/issues/544
 md.renderer.rules.table_open = (tokens, idx, options, _, self) =>

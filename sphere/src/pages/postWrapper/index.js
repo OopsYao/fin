@@ -103,4 +103,39 @@ const article = await this.$content('blog')
 - 香蕉
 - 苹果
 - 梨
+
+
+---
+> 《一千零一面镜子》
+>
+> 我越是逃离  
+  却越是靠近你  
+  我越是背过脸  
+  却越是看见你
+>
+> 我是一座孤岛  
+  处在相思之水里  
+  四面八方  
+  隔绝我通向你
+>
+> 一千零一面镜子  
+  转映着你的容颜  
+>
+> 我从你开始  
+  我在你结束  
+{.center}
+
+
+目击众神死亡的草原上野花一片  
+远在远方的风比远方更远  
+我的琴声呜咽/泪水全无  
+我把这远方的远归还草原  
+{.center}
+
+Give me the strength lightly to bear my joys and sorrows  
+Give me the strength to make my love fruitful in service  
+Give me the strength never to disown the poor or bend my knees before insolent might  
+Give me the strength to raise my mind high above daily trifles  
+And give me the strength to surrender my strength to thy will with love  
+{.center}
 `;

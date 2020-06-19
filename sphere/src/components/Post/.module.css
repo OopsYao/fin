@@ -19,6 +19,13 @@
     border-radius: 2px;
 }
 
+/* * Para */
+
+/* markdown-attr .center */
+.post :global(.center p), .post :global(p.center) {
+    text-align: center;
+}
+
 /* * Code */
 
 .post code {
