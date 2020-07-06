@@ -17,10 +17,11 @@ export default _ => {
       if (!resp.ok) {
         // TODO Consider other kinds of situations
         setNotExist(true);
+      } else {
+        const body = await resp.json();
+        setContent(body.content);
+        document.title = body.title;
       }
-      const body = await resp.json();
-      setContent(body.content);
-      document.title = body.title;
     })();
   });
 
