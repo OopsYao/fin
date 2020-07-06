@@ -1,4 +1,5 @@
 'use strict';
+const { excerpt } = require('../utils');
 
 /**
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
@@ -21,7 +22,10 @@ module.exports = {
             entities = await strapi.services.post.find(ctx.query);
         }
 
-        return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.post }));
+        return entities.map(entity => {
+            entity.content = excerpt(entity.content);
+            return sanitizeEntity(entity, { model: strapi.models.post });
+        });
     },
 
     /**
