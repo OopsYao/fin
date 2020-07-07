@@ -1,0 +1,19 @@
+.root {
+    margin: 0 auto;
+}
+
+.cardCollection {
+    /* As a whole */
+    margin: 0 auto;
+    max-width: 890px;
+    /* Content inside */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.cardCollection>div {
+    /* Postcard */
+    max-width: 400px;
+    width: 100%;
+}

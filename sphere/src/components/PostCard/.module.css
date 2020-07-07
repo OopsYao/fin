@@ -1,0 +1,27 @@
+.card {
+    padding: 1em 1.5em;
+    /* Make the fake element (border) to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card::after {
+    /* Fake border */
+    content: '';
+    display: block;
+    border-bottom: 1px solid rgb(233, 238, 241);
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.head {
+    margin-top: 0;
+    color: black;
+}
+
+.excerpt {
+    color: rgb(115, 138, 148);
+}
