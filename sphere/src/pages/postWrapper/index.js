@@ -28,7 +28,7 @@ export default _ => {
         setNetErr(true)
       }
     })();
-  }, []);
+  }, [id]);
 
   // Present another page
   if (notExist) { return <NonePage /> };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PostCard from '../../components/PostCard';
+import Footer from '../../components/Footer';
 
 import styles from './.module.css';
 
@@ -29,11 +30,14 @@ function App() {
     <PostCard key={p.id} excerpt={p.content} title={p.title} to={`p/${p.id}`} />
   ));
   return (
-    <main className={styles.root}>
-      <div className={styles.cardCollection}>
-        {postCards}
-      </div>
-    </main>
+    <div className={styles.root}>
+      <main>
+        <div className={styles.cardCollection}>
+          {postCards}
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
