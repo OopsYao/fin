@@ -1,8 +1,12 @@
 .page {
     background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
 }
 
 .postcard {
+    width: 100%;
+    flex: 1;
     margin: 0 auto;
     max-width: var(--max-post-width);
 }

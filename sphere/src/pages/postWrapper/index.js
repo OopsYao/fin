@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Post from '../../components/Post';
 import HeadBar from '../../components/HeadBar';
+import Footer from '../../components/Footer';
 import NonePage from '../404';
 
 import styles from './.module.css';
@@ -48,6 +49,7 @@ export default _ => {
         <HeadBar />
       </header>
       <AsyncPost />
+      <Footer />      
     </div>
   );
 };
