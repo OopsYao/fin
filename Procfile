@@ -1,1 +1,1 @@
-web: cd strapi-cms && yarn start
+start: cd strapi-cms && yarn start
