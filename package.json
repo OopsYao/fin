@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "heroku-prebuild": "cd strapi-cms && yarn install",
+        "start": "cd strapi-cms && yarn start"
+    }
+}
