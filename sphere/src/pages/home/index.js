@@ -12,9 +12,15 @@ const fetchPosts = async _ => {
   return body;
 }
 
+const feedPlaceHolder = [...Array(5).keys()].map(
+  i => ({
+    id: i,
+  })
+);
+
 function App() {
   // Initial
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(feedPlaceHolder);
   useEffect(_ => {
     (async _ => {
       try {
@@ -27,7 +33,7 @@ function App() {
   }, []);
 
   const postCards = posts.map(p => (
-    <PostCard key={p.id} excerpt={p.content} title={p.title} to={`p/${p.id}`} />
+    <PostCard key={p.id} to={`p/${p.id}`} title={p.title} excerpt={p.content} />
   ));
   return (
     <div className={styles.root}>
