@@ -1,6 +1,12 @@
 {
     "scripts": {
         "heroku-prebuild": "cd strapi-cms && yarn install",
-        "start": "cd strapi-cms && yarn start"
-    }
+        "start": "cd packages/strapi-cms && yarn start",
+        "dev": "cd packages/strapi-cms && yarn develop --watch-admin",
+        "sphere": "cd packages/sphere && yarn start"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "private": true
 }
