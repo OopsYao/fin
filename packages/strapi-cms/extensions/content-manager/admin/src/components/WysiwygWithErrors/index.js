@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
 const WysiwygWithErrors = ({
@@ -14,10 +14,15 @@ const WysiwygWithErrors = ({
     const [editorState, setEditorState] = useState(
         () => EditorState.createEmpty(),
     );
-    return (<>
-        THIS IS AN EDTIOR
+
+    const onBoldClick = e => {
+        e.preventDefault();
+        setEditorState(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
+    };
+    return (<div>
+        <button onClick={onBoldClick}>Bold</button>
         <Editor editorState={editorState} onChange={setEditorState} />
-    </>)
+    </div>)
 };
 
 export default WysiwygWithErrors;
