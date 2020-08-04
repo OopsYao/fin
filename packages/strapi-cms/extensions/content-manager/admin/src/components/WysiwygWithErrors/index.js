@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
-import 'draft-js/dist/Draft.css';
+import React from 'react';
+import Editor from '../Editor';
 
 const WysiwygWithErrors = ({
     inputDescription,
@@ -11,18 +10,7 @@ const WysiwygWithErrors = ({
     onChange, // : ({ target: { name, value } }) => {} 保存这个值至该field
     value,
 }) => {
-    const [editorState, setEditorState] = useState(
-        () => EditorState.createEmpty(),
-    );
-
-    const onBoldClick = e => {
-        e.preventDefault();
-        setEditorState(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
-    };
-    return (<div>
-        <button onClick={onBoldClick}>Bold</button>
-        <Editor editorState={editorState} onChange={setEditorState} />
-    </div>)
+    return <Editor />
 };
 
 export default WysiwygWithErrors;

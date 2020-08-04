@@ -11,9 +11,10 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "draft-js": "^0.11.6",
     "knex": "<0.20.0",
     "remove-markdown": "^0.3.0",
+    "slate": "^0.58.4",
+    "slate-react": "^0.58.4",
     "sqlite3": "^5.0.0",
     "strapi": "3.0.1",
     "strapi-admin": "3.0.1",
