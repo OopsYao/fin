@@ -1,87 +1,136 @@
-import React, {
-    useMemo,
-    useState,
-} from "react";
-import {
-    createEditor,
-    Transforms,
-    Editor,
-    Text,
-    Node,
-} from 'slate'
+import Prism from './prism'
+import React, { useState, useCallback, useMemo } from 'react'
 import { Slate, Editable, withReact } from 'slate-react'
+import { Text, createEditor } from 'slate'
+import { withHistory } from 'slate-history'
+import { css } from 'emotion'
 
-const EditorHelper = {
-    ...Editor,
-    isBoldMarkActive(editor) {
-        const [match] = Editor.nodes(editor, {
-            match: n => n.bold === true,
-            universal: true,
-        });
-        return !!match
-    },
-    toggleBoldMark(editor) {
-        const isActive = this.isBoldMarkActive(editor);
-        // Get selected text
-        const { selection } = editor;
-        const [frag] = Node.fragment(editor, selection);
-        const [[{ text }]] = Node.texts(frag);
+const MarkdownPreviewExample = () => {
+  const [value, setValue] = useState(initialValue)
+  const renderLeaf = useCallback((props) => <Leaf {...props} />, [])
+  const editor = useMemo(() => withHistory(withReact(createEditor())), [])
+  const decorate = useCallback(([node, path]) => {
+    const ranges = []
 
-        // TODO Promotion needed, this func can not deal with complicated cases
-        const toggleFormat = text => {
-            if (isActive) {
-                if (/\*\*.*\*\*/.test(text)) {
-                    return text.substring(2, text.length - 2)
-                } else {
-                    return text
-                }
-            } else {
-                return `**${text}**`
-            }
-        }
-
-        Transforms.insertText(
-            editor,
-            toggleFormat(text)
-        );
-        Transforms.setNodes(
-            editor,
-            { bold: isActive ? null : true },
-            { match: n => Text.isText(n), split: true }
-        );
+    if (!Text.isText(node)) {
+      return ranges
     }
+
+    const getLength = (token) => {
+      if (typeof token === 'string') {
+        return token.length
+      } else if (typeof token.content === 'string') {
+        return token.content.length
+      } else {
+        return token.content.reduce((l, t) => l + getLength(t), 0)
+      }
+    }
+
+    const tokens = Prism.tokenize(node.text, Prism.languages.markdown)
+    let start = 0
+
+    for (const token of tokens) {
+      const length = getLength(token)
+      const end = start + length
+
+      if (typeof token !== 'string') {
+        ranges.push({
+          [token.type]: true,
+          anchor: { path, offset: start },
+          focus: { path, offset: end },
+        })
+      }
+
+      start = end
+    }
+
+    return ranges
+  }, [])
+
+  return (
+    <Slate editor={editor} value={value} onChange={(value) => setValue(value)}>
+      <Editable
+        decorate={decorate}
+        renderLeaf={renderLeaf}
+        placeholder="Write some markdown..."
+      />
+    </Slate>
+  )
 }
 
-const myEditor = () => {
-    const editor = useMemo(() => withReact(createEditor()), [])
-    // Add the initial value when setting up our state.
-    const [value, setValue] = useState([
-        {
-            type: 'paragraph',
-            children: [{ text: 'A line of text in a paragraph.' }],
-        },
-    ])
-    return (
-        <Slate
-            editor={editor}
-            value={value}
-            onChange={newValue => setValue(newValue)}
-        >
-            <Editable
-                onKeyDown={evt => {
-                    if (!evt.ctrlKey) { return }
-                    switch (evt.key) {
-                        case 'b':
-                            evt.preventDefault();
-                            EditorHelper.toggleBoldMark(editor);
-                            break;
-                        default:
-                            break;
-                    }
-                }}
-            />
-        </Slate>
-    )
+const Leaf = ({ attributes, children, leaf }) => {
+  return (
+    <span
+      {...attributes}
+      className={css`
+        font-weight: ${leaf.bold && 'bold'};
+        font-style: ${leaf.italic && 'italic'};
+        text-decoration: ${leaf.underlined && 'underline'};
+        ${
+          leaf.title &&
+          css`
+            display: inline-block;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+          `
+        }
+        ${
+          leaf.list &&
+          css`
+            padding-left: 10px;
+            font-size: 20px;
+            line-height: 10px;
+          `
+        }
+        ${
+          leaf.hr &&
+          css`
+            display: block;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+          `
+        }
+        ${
+          leaf.blockquote &&
+          css`
+            display: inline-block;
+            border-left: 2px solid #ddd;
+            padding-left: 10px;
+            color: #aaa;
+            font-style: italic;
+          `
+        }
+        ${
+          leaf.code &&
+          css`
+            font-family: monospace;
+            background-color: #eee;
+            padding: 3px;
+          `
+        }
+      `}
+    >
+      {children}
+    </span>
+  )
 }
 
-export default myEditor;
+const initialValue = [
+  {
+    children: [
+      {
+        text:
+          'Slate is flexible enough to add **decorations** that can format text based on its content. For example, this editor has **Markdown** preview decorations on it, to make it _dead_ simple to make an editor with built-in Markdown previewing.',
+      },
+    ],
+  },
+  {
+    children: [{ text: '## Try it out!' }],
+  },
+  {
+    children: [{ text: 'Try it out for yourself!' }],
+  },
+]
+
+export default MarkdownPreviewExample
