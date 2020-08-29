@@ -8,17 +8,33 @@
   flex: 1;
 }
 
+/* Magazine design via flex-box
+   It may be implemented by grid layout, but not so flexible
+   See https://css-tricks.com/responsive-grid-magazine-layout-in-just-20-lines-of-css/ */
 .cardCollection {
   /* As a whole */
   margin: 0 auto;
   max-width: 890px;
   /* Content inside */
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 0.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
 }
 
-.cardCollection > div:nth-child(4n + 4) {
-  grid-column: 1 / -1;
+.cardCollection > div {
+  /* For dev */
+  border: 1px saddlebrown solid;
+}
+
+.cardCollection > div:nth-child(6n + 1) {
+  flex: 1 1 max(100%, 200px);
+}
+.cardCollection > div:nth-child(6n + 2),
+.cardCollection > div:nth-child(6n + 3) {
+  flex: 1 1 max(50%, 200px);
+}
+.cardCollection > div:nth-child(6n + 4),
+.cardCollection > div:nth-child(6n + 5),
+.cardCollection > div:nth-child(6n + 6) {
+  flex: 1 1 max(33%, 200px);
 }

@@ -14,7 +14,7 @@ const fetchPosts = async (_) => {
   return body
 }
 
-const feedPlaceHolder = [...Array(5).keys()].map((i) => ({
+const feedPlaceHolder = [...Array(12).keys()].map((i) => ({
   id: i,
 }))
 
