@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PostCard from '../../components/PostCard';
-import Footer from '../../components/Footer';
+import PostCard from 'components/PostCard';
+import Footer from 'components/Footer';
 
 import styles from './.module.css';
 
