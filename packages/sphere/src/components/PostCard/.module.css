@@ -1,45 +1,47 @@
 .card {
-    padding: 1em 1.5em;
-    /* Make the fake element (border) to the bottom */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  padding: 1em 1.5em;
+  /* Make the fake element (border) to the bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card::after {
-    /* Fake border */
-    content: '';
-    display: block;
-    border-bottom: 1px solid rgb(233, 238, 241);
+  /* Fake border */
+  content: '';
+  display: block;
+  border-bottom: 1px solid rgb(233, 238, 241);
 }
 
 .card a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .head {
-    margin-top: 0;
-    color: black;
+  margin-top: 0;
+  color: black;
 }
 
 .excerpt {
-    color: rgb(115, 138, 148);
+  color: rgb(115, 138, 148);
 }
 
 /* Skeleton */
 .card:empty::after {
-    height: 100%;
-    min-height: 100px;
-    content: '';
-    --line-height: 1.15;
-    --head-margin: max(1em, .83 * 1.5em);
-    --head-line: calc(1.5em * var(--line-height));
-    --excerpt-line: calc(1em * var(--line-height));
-    --excerpt-start: calc(var(--head-line) + var(--head-margin));
-    --text-skeleton: linear-gradient(grey 100%, transparent 0);
-    --card-skeleton: linear-gradient(white 100%, transparent 0);
-    background-repeat: no-repeat;
-    background-image: var(--text-skeleton), var(--text-skeleton), var(--text-skeleton), var(--card-skeleton);
-    background-size: 40% 1.5em, 100% 1em, 50% 1em, 100% 100%;
-    background-position: 0 0, 0 var(--excerpt-start), 0 calc(var(--excerpt-start) + var(--excerpt-line)), 0 0;
+  height: 100%;
+  min-height: 100px;
+  content: '';
+  --line-height: 1.15;
+  --head-margin: max(1em, 0.83 * 1.5em);
+  --head-line: calc(1.5em * var(--line-height));
+  --excerpt-line: calc(1em * var(--line-height));
+  --excerpt-start: calc(var(--head-line) + var(--head-margin));
+  --text-skeleton: linear-gradient(grey 100%, transparent 0);
+  --card-skeleton: linear-gradient(white 100%, transparent 0);
+  background-repeat: no-repeat;
+  background-image: var(--text-skeleton), var(--text-skeleton),
+    var(--text-skeleton), var(--card-skeleton);
+  background-size: 40% 1.5em, 100% 1em, 50% 1em, 100% 100%;
+  background-position: 0 0, 0 var(--excerpt-start),
+    0 calc(var(--excerpt-start) + var(--excerpt-line)), 0 0;
 }

@@ -1,8 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## TODOs
+
 - [] long pic (horziontally) scoll (needs a speical grammar to mark this, like
-     [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs))
+  [markdown-it-attrs](https://github.com/arve0/markdown-it-attrs))
 
 ## Available Scripts
 

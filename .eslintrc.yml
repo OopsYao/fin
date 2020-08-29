@@ -1,0 +1,10 @@
+root: true
+extends:
+  - eslint:recommended
+  # eslint-config-prettier
+  - prettier
+  - prettier/react # For sphere app
+env:
+  browser: true
+  node: true
+  es2020: true

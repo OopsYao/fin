@@ -1,24 +1,24 @@
 .root {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.root>main {
-    flex: 1;
+.root > main {
+  flex: 1;
 }
 
 .cardCollection {
-    /* As a whole */
-    margin: 0 auto;
-    max-width: 890px;
-    /* Content inside */
-    display: grid;
-    grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: .5em;
+  /* As a whole */
+  margin: 0 auto;
+  max-width: 890px;
+  /* Content inside */
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.5em;
 }
 
-.cardCollection>div:nth-child(4n+4) {
-    grid-column: 1 / -1;
+.cardCollection > div:nth-child(4n + 4) {
+  grid-column: 1 / -1;
 }

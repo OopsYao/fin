@@ -1,5 +1,4 @@
 import Prism from 'prismjs'
-
 ;(Prism.languages.markdown = Prism.languages.extend('markup', {})),
   Prism.languages.insertBefore('markdown', 'prolog', {
     blockquote: { pattern: /^>(?:[\t ]*>)*/m, alias: 'punctuation' },

@@ -14,11 +14,7 @@
     },
     "status": {
       "type": "enumeration",
-      "enum": [
-        "published",
-        "draft",
-        "archive"
-      ]
+      "enum": ["published", "draft", "archive"]
     },
     "content": {
       "type": "richtext"
