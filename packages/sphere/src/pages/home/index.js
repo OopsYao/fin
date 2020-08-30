@@ -2,27 +2,19 @@ import React, { useState, useEffect } from 'react'
 import PostCard from 'components/PostCard'
 import Footer from 'components/Footer'
 
+import { fetchPosts } from 'services/posts'
+
 import styles from './.module.css'
 
-// Post feedS
-const fetchPosts = async (_) => {
-  const resp = await fetch(`http://${process.env.REACT_APP_API_END}/posts`)
-  if (!resp.ok) {
-    return []
-  }
-  const body = resp.json()
-  return body
-}
-
-const feedPlaceHolder = [...Array(12).keys()].map((i) => ({
-  id: i,
+const feedPlaceHolder = [...Array(12).keys()].map((id) => ({
+  id,
 }))
 
 function App() {
   // Initial
   const [posts, setPosts] = useState(feedPlaceHolder)
-  useEffect((_) => {
-    ;(async (_) => {
+  useEffect(() => {
+    ;(async () => {
       try {
         const posts = await fetchPosts()
         setPosts(posts)
@@ -33,7 +25,7 @@ function App() {
   }, [])
 
   const postCards = posts.map((p) => (
-    <PostCard key={p.id} to={`p/${p.id}`} title={p.title} excerpt={p.content} />
+    <PostCard key={p.id} to={`p/${p.id}`} {...p} excerpt={p.content} />
   ))
   return (
     <div className={styles.root}>

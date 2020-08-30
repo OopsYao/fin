@@ -5,6 +5,8 @@ import Routes from './routes'
 import { BrowserRouter as Router } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker'
 
+process.env.REACT_APP_MOCK_ENABLED && require('./mock')
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
