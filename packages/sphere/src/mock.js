@@ -14,10 +14,10 @@ const listTemplate = (repeat, itemTemplate) => {
 mockCheck(/post/) &&
   Mock.mock(
     /posts/,
-    listTemplate(6, {
+    listTemplate(12, {
       'id|+1': 1,
       title: '@ctitle',
       content: '@cparagraph',
-      image: '@image(679x380)',
+      image: '@image(300x150)',
     }),
   )

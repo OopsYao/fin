@@ -7,11 +7,13 @@ const PostCard = ({ image, title, excerpt, to }) => {
     <div className={styles.card}>
       {excerpt !== undefined && (
         <>
-          <img src={image} alt={title} />
-          <Link to={to}>
+          <Link to={to} className={styles.pic}>
+            <img src={image} alt={title} />
+          </Link>
+          <div className={styles.liter}>
             <h2 className={styles.head}>{title}</h2>
             <p className={styles.excerpt}>{excerpt}</p>
-          </Link>
+          </div>
         </>
       )}
     </div>

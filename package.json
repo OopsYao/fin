@@ -2,7 +2,8 @@
   "scripts": {
     "start:back": "cd packages/strapi-cms && yarn start",
     "dev:back": "cd packages/strapi-cms && yarn develop --watch-admin",
-    "dev:front": "cd packages/sphere && yarn start"
+    "dev:front": "cd packages/sphere && yarn start",
+    "dev:front:mock": "cd packages/sphere && yarn start:mock"
   },
   "workspaces": [
     "packages/*"
