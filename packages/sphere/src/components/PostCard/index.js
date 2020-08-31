@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './.module.css'
+import styles from './.module.scss'
 import { Link } from 'react-router-dom'
 
 const PostCard = ({ image, title, excerpt, to }) => {

@@ -2,31 +2,36 @@
   /* Make the fake element (border) to the bottom */
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  align-content: flex-start; // This can align titles of the same level (with same image hight)
+
+  &::after {
+    /* Fake border */
+    content: '';
+    display: block;
+    border-bottom: 1px solid rgb(233, 238, 241);
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
-.card::after {
-  /* Fake border */
-  content: '';
-  display: block;
-  border-bottom: 1px solid rgb(233, 238, 241);
-}
-
+// Responsive post card with image and literature
 .pic {
-  flex: 1 1 auto;
-  padding: 1em;
-}
-.pic img {
-  width: 100%;
+  flex: 5 1 auto;
+
+  img {
+    width: 100%;
+  }
 }
 
 .liter {
-  flex: 1 1 200px;
-  padding: 1em;
+  flex: 1 1 33%;
 }
 
-.card a {
-  text-decoration: none;
+.pic,
+.liter {
+  padding: 1em;
 }
 
 .head {

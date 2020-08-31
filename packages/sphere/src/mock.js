@@ -18,6 +18,6 @@ mockCheck(/post/) &&
       'id|+1': 1,
       title: '@ctitle',
       content: '@cparagraph',
-      image: '@image(300x150)',
+      image: '@image(300x200)',
     }),
   )
