@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PostCard from 'components/PostCard'
 import Footer from 'components/Footer'
+import HomeBanner from 'components/HomeBanner'
 
 import { fetchPosts } from 'services/posts'
 
@@ -29,6 +30,9 @@ function App() {
   ))
   return (
     <div className={styles.root}>
+      <div className={styles.banner}>
+        <HomeBanner />
+      </div>
       <main>
         <div className={styles.cardCollection}>{postCards}</div>
       </main>

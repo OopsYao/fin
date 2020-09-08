@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+.banner {
+  /* TODO unifrom 890px */
+  max-width: min(100%, 890px);
+  margin: 0 auto;
+}
+
 .root > main {
   flex: 1;
 }

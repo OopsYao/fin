@@ -32,6 +32,7 @@ export default () => {
         disableOnInteraction: false,
       }}
       effect="fade"
+      grabCursor={true}
     >
       {slideList}
     </Swiper>
