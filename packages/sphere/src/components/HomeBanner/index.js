@@ -22,7 +22,24 @@ const slideList = [1, 2, 3, 4, 5].map((i) => (
 ))
 
 // TODO Responsive design --- for wider screen, scale image in not practical
-export default () => {
+export default ({ onSlideChange }) => {
+  // Remove undefined fields
+  const cleanObject = (obj) => {
+    const newObj = { ...obj }
+    Object.keys(newObj).forEach(
+      (key) => newObj[key] === undefined && delete newObj[key],
+    )
+    return newObj
+  }
+
+  const onSlideChangeConfig = cleanObject({
+    // TODO In the loop mode, the second slide change will be invoked twice
+    onSlideChange:
+      onSlideChange instanceof Function
+        ? (swiper) => onSlideChange(swiper.realIndex)
+        : undefined,
+  })
+
   return (
     <Swiper
       pagination={{ clickable: true }}
@@ -33,6 +50,7 @@ export default () => {
       }}
       effect="fade"
       grabCursor={true}
+      {...onSlideChangeConfig}
     >
       {slideList}
     </Swiper>
