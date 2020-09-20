@@ -5,8 +5,6 @@
 }
 
 .banner {
-  /* TODO unifrom 890px */
-  max-width: min(100%, 890px);
   margin: 0 auto;
 }
 

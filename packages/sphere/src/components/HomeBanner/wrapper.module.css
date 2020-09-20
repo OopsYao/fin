@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  padding: 1em 0;
+  /* To wrapper the pseudo absolute element */
+  position: relative;
+  justify-content: center;
+  width: 100vw;
+}
+
+.background {
+  /* Compatible with .wrapper padding */
+  margin: -1em 0;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(1.5em);
+  transition: all 0s;
+}

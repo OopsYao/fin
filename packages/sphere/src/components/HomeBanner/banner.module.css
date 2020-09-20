@@ -1,3 +1,8 @@
 .slide img{
     width: 100%;
 }
+
+.innerBanner {
+    /* Compatible with the global setting */
+    max-width: 890px;
+}
