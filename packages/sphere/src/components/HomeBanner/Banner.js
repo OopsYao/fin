@@ -12,29 +12,21 @@ import styles from './banner.module.css'
 SwiperCore.use([Pagination, A11y, EffectFade, Autoplay])
 
 // TODO Responsive design --- for wider screen, scale image in not practical
-export default ({ onSlideChange, imageList }) => {
-  // Remove undefined fields
-  const cleanObject = (obj) => {
-    const newObj = { ...obj }
-    Object.keys(newObj).forEach(
-      (key) => newObj[key] === undefined && delete newObj[key],
-    )
-    return newObj
-  }
-
-  const onSlideChangeConfig = cleanObject({
-    // TODO In the loop mode, the second slide change will be invoked twice
-    onSlideChange:
-      onSlideChange instanceof Function
-        ? (swiper) => onSlideChange(swiper.realIndex)
-        : undefined,
-  })
-
+export default ({ onSlideChange: rawOnSlideChange, imageList }) => {
   const slideList = imageList.map(({ src, alt }, i) => (
     <SwiperSlide key={i} className={styles.slide}>
       <img src={src} alt={alt} />
     </SwiperSlide>
   ))
+
+  const onSlideChange = (() => {
+    // 取消第一次触发
+    let firstTimeFlag = true
+    return ({ realIndex }) => {
+      !firstTimeFlag && rawOnSlideChange(realIndex)
+      firstTimeFlag = false
+    }
+  })()
 
   return (
     <Swiper
@@ -46,7 +38,7 @@ export default ({ onSlideChange, imageList }) => {
       }}
       effect="fade"
       grabCursor={true}
-      {...onSlideChangeConfig}
+      {...(rawOnSlideChange instanceof Function && { onSlideChange })}
       className={styles.innerBanner}
     >
       {slideList}
