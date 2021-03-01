@@ -13,7 +13,7 @@
   "dependencies": {
     "emotion": "^10.0.27",
     "knex": "<0.20.0",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.23.0",
     "remove-markdown": "^0.3.0",
     "slate": "^0.58.4",
     "slate-history": "^0.58.4",
